@@ -1,15 +1,18 @@
 class StudentsController < ApplicationController
+require "prawn"
+
 
   def index
-    @students = Unirest.get("url").body
+    # @students = Unirest.get("url").body
+    @test = Student.pdf
   end
 
   def show
-    @student = Unirest.get("url/id").body
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = 
+    # @student = Unirest.get("url/id").body
+    # respond_to do |format|
+    #   format.html
+    #   format.pdf {render layout: false}
+    # end
   end
 end
 

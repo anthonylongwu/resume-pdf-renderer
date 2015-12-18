@@ -1,0 +1,13 @@
+<!-- pdf.text "Name: #{@student.first_name} #{student.last_name}"
+pdf.text 
+pdf.text 
+pdf.text 
+pdf.text 
+pdf.text 
+pdf.text  -->
+
+require "prawn"
+
+Prawn::Document.generate("hello.pdf") do
+  text "Hello World!"
+end
