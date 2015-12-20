@@ -3,35 +3,22 @@ require "prawn"
 
 
   def index
-    @student = "test"
-
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = Prawn::Document.new
-        pdf.text "Hello World"
-        send_data pdf.render
-      end
-    end
+    # @students = Student.all
 
   end
 
   def show
-    # @student = Unirest.get("url/id").body
+    @student = Student.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        # pdf = Prawn::Document.new
+        pdf = Student.new(@student)
+        # pdf.text "Hello World"
+        send_data pdf.render, filename: "student_#{student.id}.pdf",
+        type: "application/pdf",
+        disposition: "inline"
+      end
+    end
   end
 end
-
-
-# def show
-#     @invoice = Invoice.find(params[:id])
-#     respond_to do |format|
-#       format.html
-#       format.pdf do
-#         pdf = InvoicePdf.new(@invoice, view_context)
-#         send_data pdf.render, filename: 
-#         "invoice_#{@invoice.created_at.strftime("%d/%m/%Y")}.pdf",
-#         type: "application/pdf"
-#       end
-#     end
-#   end
-# end
