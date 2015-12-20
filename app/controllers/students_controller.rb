@@ -3,8 +3,6 @@ require "prawn"
 
 
   def index
-    @student = "test"
-
     respond_to do |format|
       format.html
       format.pdf do
