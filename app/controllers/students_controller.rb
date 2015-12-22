@@ -21,12 +21,14 @@ require "prawn"
         pdf.text "Short Bio: " + @student["bio"]
         pdf.text "LinkedIn URL: " + @student["linked_in"]
         pdf.text "Blog: " + @student["blog"]
-        # @student["experience"].each do |experience|
-        #   pdf.text experience
-        # end
 
-        # pdf.text "LinkedIn: " + @student["linkedin_url"]
-        # pdf.text "Twitter URL: " + @student["twitter_url"]
+        pdf.text "Experience:"
+        pdf.text "Start Date: " + @student["experience"].first["start_date"]
+        pdf.text "End Date: " + @student["experience"].first["end_date"]
+        pdf.text "Title: " + @student["experience"].first["title"]
+        pdf.text "Company: " + @student["experience"].first["company"]
+
+        pdf.text "Skills: " + @student["skills"].first["name"]
         send_data pdf.render, type: "application/pdf", disposition: "inline"
       end
     end
