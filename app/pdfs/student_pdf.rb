@@ -1,8 +1,9 @@
 class StudentPdf 
   include Prawn::View
 
-  def initialize
+  def initialize(student)
     super
+    @student = student
     text "Student!"
   end
 end
