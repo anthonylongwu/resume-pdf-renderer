@@ -15,9 +15,7 @@ require "prawn"
         # pdf = Prawn::Document.new
         pdf = Student.new(@student)
         # pdf.text "Hello World"
-        send_data pdf.render, filename: "student_#{student.id}.pdf",
-        type: "application/pdf",
-        disposition: "inline"
+        send_data pdf.render, filename: "#{student.id}.pdf", type: "application/pdf", disposition: "inline"
       end
     end
   end
