@@ -13,8 +13,6 @@ require "prawn"
       format.html
       format.pdf do
         pdf = Prawn::Document.new
-        # pdf = Student.new(@student)
-        # p Student.new(@student)
         pdf.text @student["first_name"] + " " + @student["last_name"]
         pdf.text "Email: " + @student["email"]
         pdf.text "Phone Number: " + @student["phone"]
